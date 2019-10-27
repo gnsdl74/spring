@@ -1,0 +1,26 @@
+@charset "UTF-8";
+input{
+	background: yellow;
+}
+
+#id{
+	color: blue;
+}
+
+
+.in{
+	border: 2px dotted red;
+}
+
+.title{
+	background: white;
+	color: brown;
+}
+
+.content{
+	border : 3px dotted green;
+}
+
+.writer{
+	background: pink;
+}
