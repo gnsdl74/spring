@@ -3,41 +3,38 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="book">
-
-	<!-- <select id="getSomething" parameterType="int" resultType="#package.#modelname">
-		SELECT
-		columnname1,
-		columnname2,
-		columnname3
-		FROM tablename1
-		WHERE columnname1 = #{value}
+	<!-- 모든 이름이 같을 경우에 자동으로 resultType이 지정됨. 수동으로 하려면 resultMap 사용 -->
+	<!-- resultType을 사용하려면 값에 bookDto를 지정. map을 지정하게 되면 HashMap을 쓰겠다는 의미가 됨. -->
+	<!-- resultType과 resultMap의 차이를 알아둘 것. -->
+	<select id="selectOne" parameterType="bookDto" resultMap="map">
+		SELECT * FROM bookmark WHERE id = #{id}
 	</select>
-
-	<resultMap type="#modelname" id="YourResultSet">
-		<id property="param1" column="columnname1" />
-		<result property="param2" column="columnname2" />
-		<result property="param3" column="columnname3" />
-	</resultMap> -->
-
-	<!-- <select id="getAll" resultMap="YourResultSet">
-		SELECT * FROM tablename1
+	
+	<!-- DB에서 가져온 데이터를 DTO에 어떻게 맵핑시킬 것인가. -->
+	<resultMap type="bookDto" id="map">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="site" column="site" />
+	</resultMap>
+	
+	<!-- selectAll의 결과는 list형태로 받아옴 -->
+	<select id="selectAll" resultMap="map">
+		SELECT * FROM bookmark
 	</select>
- -->
+ 
 	<insert id="insert" parameterType="bookDto">
 		INSERT INTO bookmark VALUES(#{id},#{name},#{site})
 	</insert>
 
-	<!-- <update id="updateSomething" parameterType="#modelname">
-		UPDATE tablename1
-		SET
-		columnname1=#{param1}
-		WHERE
-		columnname2 = #{param2}
+	<update id="update" parameterType="bookDto">
+		UPDATE bookmark	SET	name = #{name} WHERE id = #{id}
 	</update>
 
-	<delete id="deleteSomething" parameterType="int">
-		DELETE FROM tablename1 WHERE
-		columnname1 = #{param1}
-	</delete> -->
+	<delete id="delete" parameterType="bookDto">
+		DELETE FROM bookmark WHERE id = #{id}
+	</delete>
 
 </mapper>
+
+<!-- ORM 설정 -->
+<!-- bookmark테이블의 mapper파일 -->

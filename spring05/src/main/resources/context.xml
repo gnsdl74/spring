@@ -15,11 +15,15 @@
     <property name="configLocation" value="classpath:config.xml"></property>
 </bean>
 
-<!-- dbcp의 싱글톤 객체 생성 -->
+<!-- dbcp의 싱글톤 객체 생성 // 어떤 DB에 연결할 것 -->
 <bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
     <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>  
     <property name="url" value="jdbc:mysql://localhost:3307/spring"></property> 
     <property name="username" value="root"></property>  
     <property name="password" value="1234"></property>  
 </bean>
+
+	<!-- dbcp는 db.properties에 설정해도 되지만 이렇게 bean으로 driver를 설정가능 -->
 </beans>
+
+<!-- 필요한 객체를 context.xml에 생성하여 사용 -->

@@ -5,9 +5,16 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.kgitbank.mvc05.BookMarkDTO" alias="bookDto"></typeAlias>
+		<typeAlias type="com.kgitbank.mvc05.MemberDTO" alias="memberDto"></typeAlias>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="book.xml" />
+		<mapper resource="member.xml" />
 	</mappers>
+	
 </configuration>
+
+
+
+<!-- mapper파일리스트를 관리하는 전체 MyBatis 설정파일 -->
