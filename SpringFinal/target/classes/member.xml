@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	<resultMap type="memberDto" id="map1">
+		<result property="id" column="id" />
+		<result property="pw" column="pw" />
+		<result property="name" column="name" />
+		<result property="tel" column="tel" />
+	</resultMap>
+<!-- ORM -->
+<!-- #{} EL은 sql문을 미리 생성하고 있다가 id가 들어오면 바로 실행 -->
+<!-- ${] EL은 값이 들어왔을때 sql문 전체를 생성하여 실행 -->
+	<select id="select" parameterType="memberDto" resultMap="map1">
+		SELECT * FROM member where id = #{id}
+	</select>
+
+	<insert id="insert" parameterType="memberDto">
+		INSERT INTO member VALUES(#{id}, #{pw}, #{name}, #{tel})
+	</insert>
+
+	<!-- <update id="updateSomething" parameterType="#modelname">
+		UPDATE tablename1
+		SET
+		columnname1=#{param1}
+		WHERE
+		columnname2 = #{param2}
+	</update>
+
+	<delete id="deleteSomething" parameterType="int">
+		DELETE FROM tablename1 WHERE
+		columnname1 = #{param1}
+	</delete> -->
+
+</mapper>

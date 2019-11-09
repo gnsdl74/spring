@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.kgitbank.mvcFinal.MemberDTO" alias="memberDto"></typeAlias>
+		<typeAlias type="com.kgitbank.mvcFinal.BbsDTO" alias="bbsDto"></typeAlias>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="member.xml" />
+		<mapper resource="bbs.xml" />
+	</mappers>
+	
+</configuration>
+
+
+
+<!-- 전체 mapper파일리스트를 관리하는  MyBatis의 설정파일 -->
