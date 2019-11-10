@@ -8,7 +8,9 @@
 <link href="resources/css/project.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<!-- 전체 페이지 -->
 	<div id="total">
+		<!-- top 요소 출력 -->
 		<div id="top">
 			<!-- ul태그는 순서 없는 리스트, ol태그는 순서있는 리스트, li는 리스트 항목 -->
 			<ul>
@@ -20,5 +22,6 @@
 			</ul>
 		</div>
 	</div>
+	
 </body>
 </html>

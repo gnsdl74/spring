@@ -6,11 +6,15 @@
 	<typeAliases>
 		<typeAlias type="com.kgitbank.mvcFinal.MemberDTO" alias="memberDto"></typeAlias>
 		<typeAlias type="com.kgitbank.mvcFinal.BbsDTO" alias="bbsDto"></typeAlias>
+		<typeAlias type="com.kgitbank.mvcFinal.ProductDTO" alias="productDto"></typeAlias>
+		<typeAlias type="com.kgitbank.mvcFinal.ReplyDTO" alias="replyDto"></typeAlias>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="member.xml" />
 		<mapper resource="bbs.xml" />
+		<mapper resource="product.xml" />
+		<mapper resource="reply.xml" />
 	</mappers>
 	
 </configuration>

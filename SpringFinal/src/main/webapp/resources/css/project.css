@@ -1,8 +1,14 @@
 @charset "UTF-8";
 
+th {
+	font-size: 20px;
+	text-align: center;
+	background-color: aquamarine;
+}
 td {
 	font-size: 20px;
 	text-align: center;
+	background-color: bisque;
 }
 
 #content {
@@ -32,8 +38,7 @@ input {
 }
 
 a {
-	text-decoration: none;
-	color: black;
+	color: blue;
 	font: 30px 굴림 bold italic;
 }
 

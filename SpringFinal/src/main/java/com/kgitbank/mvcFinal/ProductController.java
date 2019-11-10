@@ -8,32 +8,45 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class BbsController {
+public class ProductController {
 
 	@Autowired
-	BbsDAO dao;
+	ProductDAO dao;
 	
-	@RequestMapping("selectAll")
+	@Autowired
+	ReplyDAO dao2;
+	
+	@RequestMapping("selectAll2")
 	public void selectAll(Model model) {
-		List<BbsDTO> list = dao.selectAll();
+		List<ProductDTO> list = dao.selectAll();
 		model.addAttribute("list", list);
 		for (int i = 0; i < list.size(); i++) {
 			// 리스트에 있는 dto를 꺼낸다.
-			BbsDTO dto = list.get(i);
+			ProductDTO dto = list.get(i);
 			System.out.println(dto.getId());
 			System.out.println(dto.getTitle());
 			System.out.println(dto.getContent());
-			System.out.println(dto.getWriter());
+			System.out.println(dto.getPrice());
+			System.out.println(dto.getImg());
 			System.out.println("-----------------------");
 		}
 	}
 	
-	@RequestMapping("select")
-	public void select(String id, Model model) {
-		BbsDTO dto = dao.select(id);
+	@RequestMapping("select2")
+	public void select(ProductDTO productDTO, Model model) {
+		ProductDTO dto = dao.select(productDTO);
 		model.addAttribute("dto", dto);
+		
+		
+		// 댓글 가지고오기
+		ReplyDTO dto2 = new ReplyDTO();
+		dto2.setProductId(dto.getId());
+		List<ReplyDTO> list = dao2.selectAll(dto2);
+		model.addAttribute("list", list);
+		for (ReplyDTO replyDTO : list) {
+			System.out.println(replyDTO);
+		}
 	}
-	
 	
 	
 }

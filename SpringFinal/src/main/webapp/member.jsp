@@ -8,7 +8,7 @@
 <link href="resources/css/project.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div id="total">
+	<div align="center" id="total">
 		<!-- top메뉴 들어가는 부분 -->
 		<div id="top">
 			<jsp:include page="top.jsp"></jsp:include>

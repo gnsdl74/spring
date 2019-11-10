@@ -46,5 +46,10 @@ public class BbsDTO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
+
+	@Override
+	public String toString() {
+		return "BbsDTO [id=" + id + ", title=" + title + ", content=" + content + ", writer=" + writer + "]";
+	}
 	
 }

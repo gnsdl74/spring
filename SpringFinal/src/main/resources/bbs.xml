@@ -13,15 +13,15 @@
 <!-- #{} EL은 sql문을 미리 생성하고 있다가 id가 들어오면 바로 실행 -->
 <!-- ${] EL은 값이 들어왔을때 sql문 전체를 생성하여 실행 -->
 	<select id="select" parameterType="bbsDto" resultMap="map2">
-		SELECT * FROM member where id = #{id}
+		SELECT * FROM bbs where id = #{id}
 	</select>
 	
 	<select id="selectAll" resultMap="map2">
-		SELECT * FROM member
+		SELECT * FROM bbs order by id asc
 	</select>
 
 	<insert id="insert" parameterType="bbsDto">
-		INSERT INTO member VALUES(#{id}, #{title}, #{content}, #{writer})
+		INSERT INTO bbs VALUES(#{id}, #{title}, #{content}, #{writer})
 	</insert>
 
 	<!-- <update id="updateSomething" parameterType="#modelname">

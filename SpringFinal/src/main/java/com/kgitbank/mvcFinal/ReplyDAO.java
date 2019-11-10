@@ -7,18 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BbsDAO {
-
+public class ReplyDAO {
+	
 	@Autowired
 	SqlSessionTemplate my;
 	
-	public List<BbsDTO> selectAll() {
-		return my.selectList("bbs.selectAll");
+	public List<ReplyDTO> selectAll(ReplyDTO dto) {
+		return my.selectList("reply.selectAll", dto);
 	}
-	
-	public BbsDTO select(String id) {
-		return my.selectOne("bbs.select", id);
-	}
-	
 	
 }
